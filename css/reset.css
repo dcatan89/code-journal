@@ -4,4 +4,16 @@
 
 body {
   margin: 0;
+  font-family: sans-serif;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  font-weight: 100;
+}
+
+textarea {
+  width: 100%;
 }

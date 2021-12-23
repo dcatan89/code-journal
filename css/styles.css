@@ -1,0 +1,39 @@
+.new-entry-h1 {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+header {
+  font-size: 1.5rem;
+  margin: 0;
+  margin-bottom: 0.75rem;
+  height: 100%;
+  padding: 1rem;
+}
+
+.form-save > button {
+  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
+  border-radius: 5px;
+  background-color: #552a80;
+  color: white;
+  border: none;
+  margin-top: 1.5rem;
+}
+
+label {
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+.background-blviolet {
+  background-color: #552a80;
+}
+
+.head-journal {
+  color: white;
+}
+
+.bground-off-white {
+  background-color: #f0f0f0;
+}

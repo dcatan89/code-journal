@@ -1,25 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link rel="icon" href="images/favicon.ico">
-  <link
-    rel="stylesheet"
-    crossorigin="anonymous"
+  <link rel="stylesheet" crossorigin="anonymous"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <header>
+<body class="bground-off-white">
+  <header class="head-journal background-blviolet">
+    <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <div>Code Journal</div>
+        </div>
+      </div>
+    </div>
   </header>
-  <main>
-  </main>
+  <div class="container" data-view="entry-form">
+    <form id="entry-form">
+      <div class="row">
+        <div class="column-full">
+          <h1 class="new-entry-h1">New Entry</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column-half placehld-img">
+          <img src="images/placeholder-image-square.jpg">
+        </div>
+        <div class="column-half">
+          <div class="row title-section">
+            <label for="title-entry">Title</label>
+            <input required name="title" type="text" id="title-entry">
+          </div>
+          <div class="row url-section">
+            <label for="url-entry">Photo URL</label>
+            <input required name="url" type="url" id="url-entry">
+          </div>
+
+        </div>
+      </div>
+      <div class="notes-section row">
+        <label for="notes-entry">Notes</label>
+        <textarea required rows="8" name="notes" id="notes-entry"></textarea>
+      </div>
+      <div class="form-save row">
+        <button type="submit">SAVE</button>
+      </div>
+    </form>
+  </div>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>
