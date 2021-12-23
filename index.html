@@ -14,15 +14,13 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="bground-off-white">
-  <div class="container background-blviolet">
-    <div class="row">
-      <div class="column-full">
-        <header class="head-journal">
-          Code Journal
-        </header>
+  <header class="head-journal background-blviolet">
+    <div class="container">
+      <div class="row">
+        <div class="column-full">Code Journal</div>
       </div>
     </div>
-  </div>
+  </header>
   <div class="container" data-view="entry-form">
     <form id="entry-form">
       <div class="row">
@@ -36,18 +34,18 @@
         </div>
         <div class="column-half">
           <div class="row title-section">
-            <label for="user-title">Title</label>
+            <label for="title">Title</label>
             <input required name="title" type="text" id="title-entry">
           </div>
           <div class="row url-section">
-            <label for="user-url">Photo URL</label>
+            <label for="url">Photo URL</label>
             <input required name="url" type="url" id="url-entry">
           </div>
 
         </div>
       </div>
       <div class="notes-section row">
-        <label for="user-notes">Notes</label>
+        <label for="notes">Notes</label>
         <textarea required rows="8" name="notes" id="notes-entry"></textarea>
       </div>
       <div class="form-save row">
