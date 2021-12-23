@@ -53,10 +53,12 @@ label {
 
 .entries-head-section {
   justify-content: space-between;
+  align-self: center;
 }
 
 .entries-head-section > div {
   align-self: center;
+  height: 100%;
 }
 
 .new-button {
