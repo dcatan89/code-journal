@@ -37,3 +37,15 @@ label {
 .bground-off-white {
   background-color: #f0f0f0;
 }
+
+.entries-info {
+  line-height: 2rem;
+  font-size: 1rem;
+  letter-spacing: normal;
+  margin: 0;
+}
+
+.img-4-entries {
+  padding: 1rem;
+  padding-left: 0;
+}
