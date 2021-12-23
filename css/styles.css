@@ -73,6 +73,8 @@ label {
   border: none;
 }
 
-.object-contain {
-  object-fit: contain;
+button:hover {
+  cursor: pointer;
+  background-color: rgb(173, 89, 199);
+  border-radius: 5px;
 }

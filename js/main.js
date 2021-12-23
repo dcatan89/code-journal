@@ -36,7 +36,7 @@ function generateEntriesDOMTree(entries) {
   $liElement.className = 'row';
 
   var $divColImg = document.createElement('div');
-  $divColImg.className = 'column-half img-4-entries object-contain';
+  $divColImg.className = 'column-half img-4-entries';
 
   var $img4Entry = document.createElement('img');
   $img4Entry.setAttribute('src', entries.urlValue);
@@ -73,4 +73,4 @@ function domContentLoadedHandle(event) {
   }
 }
 
-window.addEventListener('DOMContentLoaded', domContentLoadedHandle);
+document.addEventListener('DOMContentLoaded', domContentLoadedHandle);
