@@ -78,3 +78,11 @@ button:hover {
   background-color: rgb(173, 89, 199);
   border-radius: 5px;
 }
+
+.entries-anchor {
+  color: white;
+  text-decoration: none;
+  margin-left: 3%;
+  font-size: 1rem;
+  align-self: center;
+}

@@ -11,13 +11,13 @@ function urlHandler(event) {
 photoUrl.addEventListener('input', urlHandler);
 
 var submitForm = document.querySelector('#entry-form');
-var inputs = submitForm.elements;
-var titleValue = inputs.title.value;
-var urlValue = inputs.url.value;
-var notesValue = inputs.notes.value;
 
 function submitHandler(event) {
   event.preventDefault();
+  var inputs = submitForm.elements;
+  var titleValue = inputs.title.value;
+  var urlValue = inputs.url.value;
+  var notesValue = inputs.notes.value;
   var entryValues = {
     titleValue,
     urlValue,
@@ -73,4 +73,4 @@ function domContentLoadedHandle(event) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', domContentLoadedHandle);
+window.addEventListener('DOMContentLoaded', domContentLoadedHandle);
