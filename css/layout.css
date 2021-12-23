@@ -50,4 +50,8 @@ img {
   .title-section, {
     width: 50%;
   }
+
+  .new-entry-h1 {
+    padding-bottom: 1rem;
+  }
 }
