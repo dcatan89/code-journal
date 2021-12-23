@@ -17,13 +17,12 @@
   <header class="head-journal background-blviolet">
     <div class="container">
       <div class="row">
-
-        <div class="code-journal-header row" >Code Journal</div>
-        <a class="entries-anchor row" href="">Entries</a>
+        <div class="code-journal-header " >Code Journal</div>
+        <a class="entries-anchor view" data-view="entries" href="">Entries</a>
       </div>
     </div>
   </header>
-  <div class="container" data-view="entry-form">
+  <div class="container view" data-view="entry-form">
     <form id="entry-form">
       <div class="row">
         <div class="column-full">
@@ -54,7 +53,7 @@
       </div>
     </form>
   </div>
-  <div class="container" >
+  <div class="container view hidden" data-view="entries" >
     <div class="row entries-head-section">
       <h1 class="column-half entries-header">Entries</h1>
       <div class="column-half new-button-section">
@@ -64,7 +63,7 @@
     <div class="row justify-center hidden">
       <p class="">No entries have been recorded</p>
     </div>
-    <div data-view="entries">
+    <div class=" row" >
       <ul id="entries-list">
       </ul>
     </div>
