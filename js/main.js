@@ -27,6 +27,7 @@ function submitHandler(event) {
   data.entries.unshift(entryValues);
   submitForm.reset();
   imgOnScreen.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $ulEntries.prepend(generateEntriesDOMTree(entryValues));
 }
 
 submitForm.addEventListener('submit', submitHandler);
@@ -78,9 +79,11 @@ window.addEventListener('DOMContentLoaded', domContentLoadedHandle);
 var $view = document.querySelectorAll('.view');
 var $entriesAnchor = document.querySelector('.entries-anchor');
 var $noEntries = document.querySelector('.no-entries');
+var $newButton = document.querySelector('.new-button');
+
 function viewSwapEntries(event) {
   event.preventDefault();
-  if (!$ulEntries.hasChildNodes()) {
+  if (data.entries.length === 0) {
     $noEntries.classList.remove('hidden');
   }
   var $dataViewEntries = event.target.getAttribute('data-view');
@@ -95,4 +98,19 @@ function viewSwapEntries(event) {
   }
 }
 
+function newEntriesView(event) {
+  var $viewEntryForm = event.target.getAttribute('data-view');
+  for (var i = 0; i < $view.length; i++) {
+
+    if ($viewEntryForm === $view[i].getAttribute('data-view')) {
+      $view[i].classList.remove('hidden');
+    } else {
+      $view[i].classList.remove('hidden');
+      $view[i].classList.add('hidden');
+      $entriesAnchor.className = 'entries-anchor view';
+    }
+  }
+}
+
+$newButton.addEventListener('click', newEntriesView);
 $entriesAnchor.addEventListener('click', viewSwapEntries);
