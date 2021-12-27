@@ -72,6 +72,7 @@ function domContentLoadedHandle(event) {
     var $EntriesList = generateEntriesDOMTree(data.entries[i]);
     $ulEntries.appendChild($EntriesList);
   }
+  dataView(data.view);
 }
 
 window.addEventListener('DOMContentLoaded', domContentLoadedHandle);
@@ -94,15 +95,10 @@ function viewSwapEntries(event) {
       dataView($dataViewEntries);
     } else {
       $view[i].classList.add('hidden');
-
     }
-
   }
-}
-
-function newEntriesView(event) {
   var $viewEntryForm = event.target.getAttribute('data-view');
-  for (var i = 0; i < $view.length; i++) {
+  for (i = 0; i < $view.length; i++) {
 
     if ($viewEntryForm === $view[i].getAttribute('data-view')) {
       $view[i].classList.remove('hidden');
@@ -113,17 +109,28 @@ function newEntriesView(event) {
       $entriesAnchor.className = 'entries-anchor view';
     }
   }
+
 }
-$newButton.addEventListener('click', newEntriesView);
+$newButton.addEventListener('click', viewSwapEntries);
 $entriesAnchor.addEventListener('click', viewSwapEntries);
 
 function dataView(string) {
   data.view = string;
+  if (data.entries.length !== 0) {
+    $noEntries.classList.add('hidden');
+  }
   for (var i = 0; i < $view.length; i++) {
-    if ($view[i].getAttribute('data-view') === string) {
+    if ($view[i].getAttribute('data-view') === string && data.view === 'entries') {
       $view[i].classList.remove('hidden');
     } else {
       $view[i].classList.add('hidden');
+    }
+  }
+  for (i = 0; i < $view.length; i++) {
+    if ($view[i].getAttribute('data-view') === string && data.view === 'entry-form') {
+      $view[i].classList.remove('hidden');
+    } else {
+      $entriesAnchor.className = 'entries-anchor view';
     }
   }
 }
