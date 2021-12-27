@@ -28,6 +28,7 @@ function submitHandler(event) {
   submitForm.reset();
   imgOnScreen.setAttribute('src', 'images/placeholder-image-square.jpg');
   $ulEntries.prepend(generateEntriesDOMTree(entryValues));
+  dataView('entries');
 }
 
 submitForm.addEventListener('submit', submitHandler);
@@ -83,7 +84,6 @@ var $noEntries = document.querySelector('.no-entries');
 var $newButton = document.querySelector('.new-button');
 
 function viewSwapEntries(event) {
-  event.preventDefault();
   if (data.entries.length === 0) {
     $noEntries.classList.remove('hidden');
   }
@@ -91,22 +91,14 @@ function viewSwapEntries(event) {
   for (var i = 0; i < $view.length; i++) {
 
     if ($dataViewEntries === $view[i].getAttribute('data-view')) {
-      $view[i].classList.remove('hidden');
       dataView($dataViewEntries);
-    } else {
-      $view[i].classList.add('hidden');
     }
-  }
-  var $viewEntryForm = event.target.getAttribute('data-view');
-  for (i = 0; i < $view.length; i++) {
+    var $viewEntryForm = event.target.getAttribute('data-view');
+    for (i = 0; i < $view.length; i++) {
 
-    if ($viewEntryForm === $view[i].getAttribute('data-view')) {
-      $view[i].classList.remove('hidden');
-      dataView($viewEntryForm);
-    } else {
-      $view[i].classList.remove('hidden');
-      $view[i].classList.add('hidden');
-      $entriesAnchor.className = 'entries-anchor view';
+      if ($viewEntryForm === $view[i].getAttribute('data-view')) {
+        dataView($viewEntryForm);
+      }
     }
   }
 
@@ -120,17 +112,11 @@ function dataView(string) {
     $noEntries.classList.add('hidden');
   }
   for (var i = 0; i < $view.length; i++) {
-    if ($view[i].getAttribute('data-view') === string && data.view === 'entries') {
+    if ($view[i].getAttribute('data-view') === string) {
       $view[i].classList.remove('hidden');
     } else {
       $view[i].classList.add('hidden');
     }
   }
-  for (i = 0; i < $view.length; i++) {
-    if ($view[i].getAttribute('data-view') === string && data.view === 'entry-form') {
-      $view[i].classList.remove('hidden');
-    } else {
-      $entriesAnchor.className = 'entries-anchor view';
-    }
-  }
+
 }
