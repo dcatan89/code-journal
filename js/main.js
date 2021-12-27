@@ -91,10 +91,12 @@ function viewSwapEntries(event) {
 
     if ($dataViewEntries === $view[i].getAttribute('data-view')) {
       $view[i].classList.remove('hidden');
+      dataView($dataViewEntries);
     } else {
       $view[i].classList.add('hidden');
 
     }
+
   }
 }
 
@@ -104,6 +106,7 @@ function newEntriesView(event) {
 
     if ($viewEntryForm === $view[i].getAttribute('data-view')) {
       $view[i].classList.remove('hidden');
+      dataView($viewEntryForm);
     } else {
       $view[i].classList.remove('hidden');
       $view[i].classList.add('hidden');
@@ -111,6 +114,16 @@ function newEntriesView(event) {
     }
   }
 }
-
 $newButton.addEventListener('click', newEntriesView);
 $entriesAnchor.addEventListener('click', viewSwapEntries);
+
+function dataView(string) {
+  data.view = string;
+  for (var i = 0; i < $view.length; i++) {
+    if ($view[i].getAttribute('data-view') === string) {
+      $view[i].classList.remove('hidden');
+    } else {
+      $view[i].classList.add('hidden');
+    }
+  }
+}
