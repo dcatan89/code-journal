@@ -84,9 +84,6 @@ var $noEntries = document.querySelector('.no-entries');
 var $newButton = document.querySelector('.new-button');
 
 function handleViewSwap(event) {
-  if (data.entries.length === 0) {
-    $noEntries.classList.remove('hidden');
-  }
   var viewName = event.target.getAttribute('data-view');
   dataView(viewName);
 }
