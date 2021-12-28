@@ -83,28 +83,15 @@ var $entriesAnchor = document.querySelector('.entries-anchor');
 var $noEntries = document.querySelector('.no-entries');
 var $newButton = document.querySelector('.new-button');
 
-function viewSwapEntries(event) {
+function handleViewSwap(event) {
   if (data.entries.length === 0) {
     $noEntries.classList.remove('hidden');
   }
-  var $dataViewEntries = event.target.getAttribute('data-view');
-  for (var i = 0; i < $view.length; i++) {
-
-    if ($dataViewEntries === $view[i].getAttribute('data-view')) {
-      dataView($dataViewEntries);
-    }
-    var $viewEntryForm = event.target.getAttribute('data-view');
-    for (i = 0; i < $view.length; i++) {
-
-      if ($viewEntryForm === $view[i].getAttribute('data-view')) {
-        dataView($viewEntryForm);
-      }
-    }
-  }
-
+  var viewName = event.target.getAttribute('data-view');
+  dataView(viewName);
 }
-$newButton.addEventListener('click', viewSwapEntries);
-$entriesAnchor.addEventListener('click', viewSwapEntries);
+$newButton.addEventListener('click', handleViewSwap);
+$entriesAnchor.addEventListener('click', handleViewSwap);
 
 function dataView(string) {
   data.view = string;
