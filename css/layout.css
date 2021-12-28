@@ -19,17 +19,26 @@
 }
 
 img {
-  max-width: 100%;
-  height: 75%;
+  width: 100%;
+  height: 100%;
 }
 
 .placehld-img {
-  height: 50%;
+  height: 75%;
   padding: 1rem 0;
 }
 
 .form-save {
   justify-content: right;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.new-button-section,
+.entries-header {
+  width: 50%;
 }
 
 @media screen and (min-width: 768px) {
@@ -53,5 +62,9 @@ img {
 
   .new-entry-h1 {
     padding-bottom: 1rem;
+  }
+
+  .entries-info {
+    width: 50%;
   }
 }

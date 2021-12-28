@@ -17,13 +17,12 @@
   <header class="head-journal background-blviolet">
     <div class="container">
       <div class="row">
-        <div class="column-full">
-          <div>Code Journal</div>
-        </div>
+        <div class="code-journal-header " >Code Journal</div>
+        <a class="entries-anchor " data-view="entries" href="">Entries</a>
       </div>
     </div>
   </header>
-  <div class="container" data-view="entry-form">
+  <div class="container hidden view" data-view="entry-form">
     <form id="entry-form">
       <div class="row">
         <div class="column-full">
@@ -43,7 +42,6 @@
             <label for="url-entry">Photo URL</label>
             <input required name="url" type="url" id="url-entry">
           </div>
-
         </div>
       </div>
       <div class="notes-section row">
@@ -54,6 +52,21 @@
         <button type="submit">SAVE</button>
       </div>
     </form>
+  </div>
+  <div class="container view " data-view="entries" >
+    <div class="row entries-head-section">
+      <h1 class="column-half entries-header">Entries</h1>
+      <div class="column-half new-button-section">
+        <button class="new-button row " data-view="entry-form">NEW</button>
+      </div>
+    </div>
+    <div class="row hidden-entry justify-center no-entries">
+      <p class="">No entries have been recorded</p>
+    </div>
+    <div class=" view hidden row" data-view="entries">
+      <ul id="entries-list" class="column-full">
+      </ul>
+    </div>
   </div>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

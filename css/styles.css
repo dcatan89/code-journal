@@ -37,3 +37,52 @@ label {
 .bground-off-white {
   background-color: #f0f0f0;
 }
+
+.entries-info {
+  line-height: 2rem;
+  font-size: 1rem;
+  letter-spacing: normal;
+  margin: 0;
+  padding-left: 5%;
+}
+
+.img-4-entries {
+  padding: 1rem 0;
+  margin: 0;
+}
+
+.entries-head-section {
+  justify-content: space-between;
+  align-self: center;
+}
+
+.entries-head-section > div {
+  align-self: center;
+  height: 100%;
+}
+
+.new-button {
+  color: white;
+  background-color: #552a80;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  justify-content: right;
+  margin: auto;
+  margin-right: 0;
+  border-radius: 5px;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(173, 89, 199);
+  border-radius: 5px;
+}
+
+.entries-anchor {
+  color: white;
+  text-decoration: none;
+  margin-left: 3%;
+  font-size: 1rem;
+  align-self: center;
+}
