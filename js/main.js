@@ -64,6 +64,7 @@ function generateEntriesDOMTree(entries) {
   $divForEditIcon.className = ' edit-img';
   $editIcon.classList.add('edit-icon');
   $editIcon.setAttribute('src', 'images/pencil.png');
+  $editIcon.setAttribute('data-view', 'edit-entry');
   $divRowContainsH2.className = 'row h2-edit-section';
   $divForH2.appendChild($h2EntryElement);
   $h2EntryElement.appendChild($entryTitle);
@@ -101,8 +102,12 @@ var $newButton = document.querySelector('.new-button');
 
 function handleViewSwap(event) {
   var viewName = event.target.getAttribute('data-view');
+  if (viewName === 'edit-entry') {
+    dataView('entry-form');
+  }
   dataView(viewName);
 }
+
 $newButton.addEventListener('click', handleViewSwap);
 $entriesAnchor.addEventListener('click', handleViewSwap);
 
@@ -120,3 +125,4 @@ function dataView(string) {
   }
 
 }
+$ulEntries.addEventListener('click', handleViewSwap);
