@@ -33,9 +33,13 @@ function submitHandler(event) {
 
 submitForm.addEventListener('submit', submitHandler);
 
+var dataEntryId = 1;
+
 function generateEntriesDOMTree(entries) {
   var $liElement = document.createElement('li');
+  $liElement.setAttribute('data-entry-id', dataEntryId);
   $liElement.className = 'row';
+  dataEntryId++;
 
   var $divColImg = document.createElement('div');
   $divColImg.className = 'column-half img-4-entries';
