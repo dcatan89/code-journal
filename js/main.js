@@ -52,9 +52,21 @@ function generateEntriesDOMTree(entries) {
   $liElement.appendChild($divColEntriesInfo);
 
   var $h2EntryElement = document.createElement('h2');
+  var $editIcon = document.createElement('img');
   var $entryTitle = document.createTextNode(entries.titleValue);
+  var $divRowContainsH2 = document.createElement('div');
+  var $divForH2 = document.createElement('div');
+  var $divForEditIcon = document.createElement('div');
+  $divForEditIcon.className = ' edit-img';
+  $editIcon.classList.add('edit-icon');
+  $editIcon.setAttribute('src', 'images/pencil.png');
+  $divRowContainsH2.className = 'row h2-edit-section';
+  $divForH2.appendChild($h2EntryElement);
   $h2EntryElement.appendChild($entryTitle);
-  $divColEntriesInfo.appendChild($h2EntryElement);
+  $divColEntriesInfo.appendChild($divRowContainsH2);
+  $divForEditIcon.appendChild($editIcon);
+  $divRowContainsH2.appendChild($divForH2);
+  $divRowContainsH2.appendChild($divForEditIcon);
 
   var $pEntryElement = document.createElement('p');
   var $pEntryText = document.createTextNode(entries.notesValue);
