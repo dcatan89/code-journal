@@ -21,7 +21,8 @@ function submitHandler(event) {
   var entryValues = {
     titleValue,
     urlValue,
-    notesValue
+    notesValue,
+    entryId: data.nextEntryId
   };
   data.nextEntryId++;
   data.entries.unshift(entryValues);
@@ -33,11 +34,9 @@ function submitHandler(event) {
 
 submitForm.addEventListener('submit', submitHandler);
 
-var dataEntryId = 1;
-
 function generateEntriesDOMTree(entries) {
   var $liElement = document.createElement('li');
-  $liElement.setAttribute('data-entry-id', dataEntryId);
+  $liElement.setAttribute('data-entry-id', entries.entryId);
   $liElement.className = 'row';
 
   var $divColImg = document.createElement('div');
@@ -60,7 +59,7 @@ function generateEntriesDOMTree(entries) {
   var $divRowContainsH2 = document.createElement('div');
   var $divForH2 = document.createElement('div');
   var $divForEditIcon = document.createElement('div');
-  $divForEditIcon.setAttribute('data-entry-id', dataEntryId);
+  $editIcon.setAttribute('data-entry-id', entries.entryId);
   $divForEditIcon.className = ' edit-img';
   $editIcon.classList.add('edit-icon');
   $editIcon.setAttribute('src', 'images/pencil.png');
@@ -78,7 +77,6 @@ function generateEntriesDOMTree(entries) {
 
   $pEntryElement.appendChild($pEntryText);
   $divColEntriesInfo.appendChild($pEntryElement);
-  dataEntryId++;
 
   return $liElement;
 }
@@ -92,6 +90,7 @@ function domContentLoadedHandle(event) {
     $ulEntries.appendChild($EntriesList);
   }
   dataView(data.view);
+
 }
 
 window.addEventListener('DOMContentLoaded', domContentLoadedHandle);
@@ -123,4 +122,13 @@ function dataView(string) {
   }
 
 }
-$ulEntries.addEventListener('click', handleViewSwap);
+
+function editClick(event) {
+  var viewName = event.target.getAttribute('data-view');
+  if (event.target.matches('.edit-icon')) {
+    dataView(viewName);
+    data.editing = parseInt(event.target.getAttribute('data-entry-id'));
+  }
+}
+
+$ulEntries.addEventListener('click', editClick);

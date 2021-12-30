@@ -96,6 +96,10 @@ button:hover {
   padding-top: 5%;
 }
 
+.edit-icon {
+  color: rgb(173, 89, 199);
+}
+
 .h2-edit-section {
   justify-content: space-between;
 }
