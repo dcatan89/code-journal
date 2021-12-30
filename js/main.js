@@ -11,7 +11,6 @@ function urlHandler(event) {
 photoUrl.addEventListener('input', urlHandler);
 
 var submitForm = document.querySelector('#entry-form');
-
 function submitHandler(event) {
   event.preventDefault();
   var inputs = submitForm.elements;
@@ -63,7 +62,7 @@ function generateEntriesDOMTree(entries) {
   $divForEditIcon.className = ' edit-img';
   $editIcon.classList.add('edit-icon');
   $editIcon.setAttribute('src', 'images/pencil.png');
-  $editIcon.setAttribute('data-view', 'edit-entry');
+  $editIcon.setAttribute('data-view', 'entry-form');
   $divRowContainsH2.className = 'row h2-edit-section';
   $divForH2.appendChild($h2EntryElement);
   $h2EntryElement.appendChild($entryTitle);
@@ -125,9 +124,21 @@ function dataView(string) {
 
 function editClick(event) {
   var viewName = event.target.getAttribute('data-view');
+  var editEntryH1 = document.querySelector('.new-entry-h1');
   if (event.target.matches('.edit-icon')) {
     dataView(viewName);
+    editEntryH1.textContent = 'Edit Entry';
     data.editing = parseInt(event.target.getAttribute('data-entry-id'));
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.editing === data.entries[i].entryId) {
+        submitForm.elements.title.value = data.entries[i].titleValue;
+        submitForm.elements.url.value = data.entries[i].urlValue;
+        submitForm.elements.notes.value = data.entries[i].notesValue;
+        submitForm.elements.entryId = data.editing;
+        imgOnScreen.setAttribute('src', data.entries[i].urlValue);
+      }
+
+    }
   }
 }
 
