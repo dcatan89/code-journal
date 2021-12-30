@@ -39,7 +39,6 @@ function generateEntriesDOMTree(entries) {
   var $liElement = document.createElement('li');
   $liElement.setAttribute('data-entry-id', dataEntryId);
   $liElement.className = 'row';
-  dataEntryId++;
 
   var $divColImg = document.createElement('div');
   $divColImg.className = 'column-half img-4-entries';
@@ -61,6 +60,7 @@ function generateEntriesDOMTree(entries) {
   var $divRowContainsH2 = document.createElement('div');
   var $divForH2 = document.createElement('div');
   var $divForEditIcon = document.createElement('div');
+  $divForEditIcon.setAttribute('data-entry-id', dataEntryId);
   $divForEditIcon.className = ' edit-img';
   $editIcon.classList.add('edit-icon');
   $editIcon.setAttribute('src', 'images/pencil.png');
@@ -78,6 +78,7 @@ function generateEntriesDOMTree(entries) {
 
   $pEntryElement.appendChild($pEntryText);
   $divColEntriesInfo.appendChild($pEntryElement);
+  dataEntryId++;
 
   return $liElement;
 }
@@ -102,9 +103,6 @@ var $newButton = document.querySelector('.new-button');
 
 function handleViewSwap(event) {
   var viewName = event.target.getAttribute('data-view');
-  if (viewName === 'edit-entry') {
-    dataView('entry-form');
-  }
   dataView(viewName);
 }
 
