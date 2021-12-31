@@ -17,14 +17,36 @@ function submitHandler(event) {
   var titleValue = inputs.title.value;
   var urlValue = inputs.url.value;
   var notesValue = inputs.notes.value;
-  var entryValues = {
-    titleValue,
-    urlValue,
-    notesValue,
-    entryId: data.nextEntryId
-  };
-  data.nextEntryId++;
-  data.entries.unshift(entryValues);
+
+  if (data.editing === null) {
+    var entryValues = {
+      titleValue,
+      urlValue,
+      notesValue,
+      entryId: data.nextEntryId
+    };
+    data.entries.unshift(entryValues);
+    data.nextEntryId++;
+  }
+
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === data.editing) {
+      entryValues = {
+        titleValue,
+        urlValue,
+        notesValue,
+        entryId: data.nextEntryId - 1
+      };
+
+      var $li = document.querySelectorAll('li');
+      var editValues = data.entries.splice(i, 1, entryValues);
+      var editEntry = generateEntriesDOMTree(editValues[i]);
+      $li[i].remove();
+      $li[i].replaceWith(editEntry);
+      data.editing = null;
+    }
+  }
+
   submitForm.reset();
   imgOnScreen.setAttribute('src', 'images/placeholder-image-square.jpg');
   $ulEntries.prepend(generateEntriesDOMTree(entryValues));
@@ -102,6 +124,8 @@ var $newButton = document.querySelector('.new-button');
 function handleViewSwap(event) {
   var viewName = event.target.getAttribute('data-view');
   dataView(viewName);
+  data.editing = null;
+  editEntryH1.textContent = 'New Entry';
 }
 
 $newButton.addEventListener('click', handleViewSwap);
@@ -121,7 +145,7 @@ function dataView(string) {
   }
 
 }
-
+var editEntryH1 = document.querySelector('.new-entry-h1');
 function editClick(event) {
   var viewName = event.target.getAttribute('data-view');
   var editEntryH1 = document.querySelector('.new-entry-h1');
@@ -137,7 +161,6 @@ function editClick(event) {
         submitForm.elements.entryId = data.editing;
         imgOnScreen.setAttribute('src', data.entries[i].urlValue);
       }
-
     }
   }
 }
