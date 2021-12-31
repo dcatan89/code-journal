@@ -157,7 +157,7 @@ function editClick(event) {
         submitForm.elements.title.value = data.entries[i].titleValue;
         submitForm.elements.url.value = data.entries[i].urlValue;
         submitForm.elements.notes.value = data.entries[i].notesValue;
-        submitForm.elements.entryId = data.entries[i].entryId;
+        data.entries.entryId = data.entries[i].entryId;
         imgOnScreen.setAttribute('src', data.entries[i].urlValue);
       }
     }
