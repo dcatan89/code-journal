@@ -35,13 +35,12 @@ function submitHandler(event) {
         titleValue,
         urlValue,
         notesValue,
-        entryId: data.nextEntryId - 1
+        entryId: data.entries[i].entryId
       };
 
       var $li = document.querySelectorAll('li');
       var editValues = data.entries.splice(i, 1, entryValues);
       var editEntry = generateEntriesDOMTree(editValues[i]);
-      $li[i].remove();
       $li[i].replaceWith(editEntry);
       data.editing = null;
     }
@@ -158,7 +157,7 @@ function editClick(event) {
         submitForm.elements.title.value = data.entries[i].titleValue;
         submitForm.elements.url.value = data.entries[i].urlValue;
         submitForm.elements.notes.value = data.entries[i].notesValue;
-        submitForm.elements.entryId = data.editing;
+        submitForm.elements.entryId = data.entries[i].entryId;
         imgOnScreen.setAttribute('src', data.entries[i].urlValue);
       }
     }
