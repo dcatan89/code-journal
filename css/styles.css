@@ -3,6 +3,11 @@
   margin-bottom: 0;
 }
 
+.edit-entry {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
 header {
   font-size: 1.5rem;
   margin: 0;
@@ -43,7 +48,6 @@ label {
   font-size: 1rem;
   letter-spacing: normal;
   margin: 0;
-  padding-left: 5%;
 }
 
 .img-4-entries {
@@ -85,4 +89,17 @@ button:hover {
   margin-left: 3%;
   font-size: 1rem;
   align-self: center;
+}
+
+.edit-img {
+  text-align: right;
+  padding-top: 5%;
+}
+
+.edit-icon {
+  color: rgb(173, 89, 199);
+}
+
+.h2-edit-section {
+  justify-content: space-between;
 }
